@@ -336,9 +336,6 @@ def draw_figure(path: Path, grouped: dict, metric: str, observation_count: int, 
                            backend, 4.0, color, median=True)
             text(pdf, left + panel_width / 2, bottom - 36, "Dataset size (fact rows)", 10, MUTED, align="center")
 
-    text(pdf, width / 2, 69,
-         "Median with observed min-max | Synthetic data | One machine",
-         11, MUTED, align="center")
     pdf.showPage()
     pdf.save()
 
