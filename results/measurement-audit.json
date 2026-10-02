@@ -1,0 +1,19 @@
+{
+  "main_observations": 270,
+  "unique_worker_pids": 270,
+  "all_valid": true,
+  "all_returncodes_zero": true,
+  "source_code_hashes_match_launch": {
+    "worker.py": true,
+    "collect.py": true,
+    "dataset.py": true,
+    "backends.py": true
+  },
+  "minimum_load1": 4.1728515625,
+  "maximum_load1": 5.2392578125,
+  "max_peak_rss_mib": 282.078125,
+  "main_worker_seconds": 84.68106783692929,
+  "no_swapout_counter_increase": true,
+  "host_clock_utc_first": "2026-10-01T18:16:24.521888+00:00",
+  "host_clock_utc_last": "2026-10-01T18:18:05.527764+00:00"
+}

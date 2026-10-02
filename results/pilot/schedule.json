@@ -1,0 +1,326 @@
+[
+  {
+    "order": 1,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "join",
+    "mode": "cold"
+  },
+  {
+    "order": 2,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "join",
+    "mode": "cold"
+  },
+  {
+    "order": 3,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "join",
+    "mode": "cold"
+  },
+  {
+    "order": 4,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "filter",
+    "mode": "cold"
+  },
+  {
+    "order": 5,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "group",
+    "mode": "warm"
+  },
+  {
+    "order": 6,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "group",
+    "mode": "warm"
+  },
+  {
+    "order": 7,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "filter",
+    "mode": "cold"
+  },
+  {
+    "order": 8,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "join",
+    "mode": "warm"
+  },
+  {
+    "order": 9,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "join",
+    "mode": "warm"
+  },
+  {
+    "order": 10,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "filter",
+    "mode": "warm"
+  },
+  {
+    "order": 11,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "group",
+    "mode": "cold"
+  },
+  {
+    "order": 12,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "join",
+    "mode": "warm"
+  },
+  {
+    "order": 13,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "filter",
+    "mode": "warm"
+  },
+  {
+    "order": 14,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "group",
+    "mode": "cold"
+  },
+  {
+    "order": 15,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "group",
+    "mode": "warm"
+  },
+  {
+    "order": 16,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "filter",
+    "mode": "cold"
+  },
+  {
+    "order": 17,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "group",
+    "mode": "cold"
+  },
+  {
+    "order": 18,
+    "block": 1,
+    "rows": 10000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "filter",
+    "mode": "warm"
+  },
+  {
+    "order": 19,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "filter",
+    "mode": "warm"
+  },
+  {
+    "order": 20,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "group",
+    "mode": "warm"
+  },
+  {
+    "order": 21,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "group",
+    "mode": "cold"
+  },
+  {
+    "order": 22,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "filter",
+    "mode": "warm"
+  },
+  {
+    "order": 23,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "join",
+    "mode": "cold"
+  },
+  {
+    "order": 24,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "join",
+    "mode": "warm"
+  },
+  {
+    "order": 25,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "group",
+    "mode": "cold"
+  },
+  {
+    "order": 26,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "group",
+    "mode": "cold"
+  },
+  {
+    "order": 27,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "filter",
+    "mode": "cold"
+  },
+  {
+    "order": 28,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "join",
+    "mode": "cold"
+  },
+  {
+    "order": 29,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "group",
+    "mode": "warm"
+  },
+  {
+    "order": 30,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "join",
+    "mode": "warm"
+  },
+  {
+    "order": 31,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "filter",
+    "mode": "warm"
+  },
+  {
+    "order": 32,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "pandas",
+    "operation": "filter",
+    "mode": "cold"
+  },
+  {
+    "order": 33,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "filter",
+    "mode": "cold"
+  },
+  {
+    "order": 34,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "join",
+    "mode": "warm"
+  },
+  {
+    "order": 35,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "python",
+    "operation": "group",
+    "mode": "warm"
+  },
+  {
+    "order": 36,
+    "block": 2,
+    "rows": 50000,
+    "repeat": 1,
+    "backend": "sqlite",
+    "operation": "join",
+    "mode": "cold"
+  }
+]

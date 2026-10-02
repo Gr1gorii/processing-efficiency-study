@@ -1,0 +1,10 @@
+{
+  "finished_utc": "2026-10-01T18:15:01.580304+00:00",
+  "planned_trials": 36,
+  "completed_trials": 36,
+  "all_valid": true,
+  "stop_reason": null,
+  "complete": true,
+  "cumulative_worker_seconds": 5.518271708970133,
+  "campaign_elapsed_seconds": 7.025009042001329
+}

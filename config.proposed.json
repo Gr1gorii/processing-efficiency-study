@@ -1,0 +1,35 @@
+{
+  "status": "prepared_not_run",
+  "data_seed": 20261001,
+  "schedule_seed": 73129,
+  "pilot_sizes": [
+    10000,
+    50000
+  ],
+  "pilot_repeats": 1,
+  "proposed_main_sizes": [
+    50000,
+    250000,
+    1000000
+  ],
+  "proposed_main_repeats": 5,
+  "backends": [
+    "python",
+    "pandas",
+    "sqlite"
+  ],
+  "operations": [
+    "filter",
+    "group",
+    "join"
+  ],
+  "modes": [
+    "cold",
+    "warm"
+  ],
+  "max_cumulative_worker_seconds": 900,
+  "per_worker_timeout_seconds": 30,
+  "max_worker_peak_rss_bytes": 2147483648,
+  "dimension_rows": 5000,
+  "threads": 1
+}

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "measured_results_checked": 306,
+  "summary_cells_checked": 54,
+  "summary_statistics_checked": 540,
+  "checks": [
+    "JSON/JSONL equality",
+    "CSV time/RSS equality",
+    "complete schedule and unique trial order",
+    "exact result digests",
+    "measured code/data and public protocol hashes",
+    "independent summary recalculation",
+    "narrative table values",
+    "worker budget",
+    "README text constraints"
+  ]
+}

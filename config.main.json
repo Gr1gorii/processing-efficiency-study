@@ -1,0 +1,51 @@
+{
+  "status": "frozen_after_pilot",
+  "data_seed": 20261001,
+  "schedule_seed": 73129,
+  "pilot_sizes": [
+    10000,
+    50000
+  ],
+  "pilot_repeats": 1,
+  "proposed_main_sizes": [
+    50000,
+    250000,
+    1000000
+  ],
+  "proposed_main_repeats": 5,
+  "backends": [
+    "python",
+    "pandas",
+    "sqlite"
+  ],
+  "operations": [
+    "filter",
+    "group",
+    "join"
+  ],
+  "modes": [
+    "cold",
+    "warm"
+  ],
+  "max_cumulative_worker_seconds": 900,
+  "per_worker_timeout_seconds": 30,
+  "max_worker_peak_rss_bytes": 2147483648,
+  "dimension_rows": 5000,
+  "threads": 1,
+  "frozen_utc": "2026-10-01T18:16:23.614335+00:00",
+  "main_sizes": [
+    50000,
+    250000,
+    1000000
+  ],
+  "main_repeats": 5,
+  "pilot_summary": {
+    "trials": 36,
+    "all_valid": true,
+    "worker_seconds": 5.518271708970133,
+    "max_peak_rss_mib": 73.46875,
+    "conservative_main_wall_forecast_seconds": 386.72606933832867,
+    "largest_peak_forecast_mib": 304.25
+  },
+  "pilot_raw_sha256": "4b57337789b7d96171b5a8f1137f507d5393e562acd19dcaa806835f14cf4b47"
+}

@@ -1,0 +1,11 @@
+test_empty_dimension (test_correctness.CorrectnessTests.test_empty_dimension) ... ok
+test_empty_fact (test_correctness.CorrectnessTests.test_empty_fact) ... ok
+test_empty_filter_and_missing_categories (test_correctness.CorrectnessTests.test_empty_filter_and_missing_categories) ... ok
+test_generator_and_conservation (test_correctness.CorrectnessTests.test_generator_and_conservation) ... ok
+test_schedule_is_complete_and_reproducible (test_correctness.CorrectnessTests.test_schedule_is_complete_and_reproducible) ... ok
+test_thresholds_negative_values_and_unmatched_join (test_correctness.CorrectnessTests.test_thresholds_negative_values_and_unmatched_join) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.331s
+
+OK

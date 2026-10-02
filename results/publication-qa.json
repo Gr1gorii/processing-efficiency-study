@@ -1,0 +1,13 @@
+{
+  "tests_passed": 6,
+  "measured_observations_preserved_except_pid": 306,
+  "new_benchmark_measurements": 0,
+  "numeric_summary_files_equal_to_original": true,
+  "relative_markdown_links_checked": 31,
+  "relative_markdown_link_errors": [],
+  "both_charts_visually_reviewed": true,
+  "reports_byte_identical_to_original": true,
+  "original_local_files_unchanged": true,
+  "public_text_private_path_and_credential_pattern_scan_passed": true,
+  "license_added": false
+}

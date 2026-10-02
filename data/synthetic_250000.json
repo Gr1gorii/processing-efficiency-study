@@ -1,0 +1,25 @@
+{
+  "rows": 250000,
+  "seed": 20261001,
+  "dimension_rows": 5000,
+  "dtype": "int64",
+  "npz_sha256": "63f96c8f14709cb2fc1be42cfc0ab7359a5423a08d6d8fc692584dc6f9d3fb7e",
+  "source_bytes": 10080512,
+  "expected": {
+    "filter": {
+      "sha256": "cdbab1e391e55021fa7b0416ef3d094bf777bc1af418dddee702665ba775535a",
+      "result_rows": 28141
+    },
+    "group": {
+      "sha256": "cb27f065f967c64d273dda7382a758429eae912833ec110b88dd344410074758",
+      "result_rows": 64
+    },
+    "join": {
+      "sha256": "0104f6aa03972640e0b632cfeb321caa0cfb49c858a4849d027924b885afa4ec",
+      "result_rows": 8
+    }
+  },
+  "fact_sum_amount_cents": 1127094154,
+  "unique_dimension_keys": true,
+  "unmatched_fact_keys": 0
+}
