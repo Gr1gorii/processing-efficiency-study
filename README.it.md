@@ -2,11 +2,11 @@
 
 [English](README.md) | **Italiano**
 
-Un confronto riproducibile tra cicli Python, pandas e SQLite sugli stessi dati sintetici. La domanda è pratica: come cambiano tempo e memoria quando lo stesso filtro, raggruppamento o JOIN viene implementato in modi diversi?
+Ho confrontato cicli Python, pandas e SQLite sugli stessi dati sintetici. Il mio obiettivo era capire come cambiano tempo e memoria quando lo stesso filtro, raggruppamento o JOIN viene implementato in modi diversi, con un esperimento riproducibile.
 
 Per analisti junior e sviluppatori, questo studio mostra come impostare un confronto verificabile, controllare risultati equivalenti e interpretare il rapporto tra tempo e memoria. Il repository contiene programma, input generati, misure reali e analisi. L'esperimento è stato eseguito su un MacBook Air Apple M3 con 16 GB di RAM il 1 ottobre 2026. I record contengono interi sintetici, non dati di clienti reali.
 
-## Cosa mostrano le misure
+## I miei risultati
 
 Con un milione di righe, pandas ha ottenuto il tempo mediano più basso per tutte e tre le operazioni, sia includendo la preparazione sia nell'esecuzione warm. In modalità warm è stato **1,56 volte più veloce di Python nel filtro, 10,89 volte nel raggruppamento e 3,84 volte nel JOIN con aggregazione**.
 
@@ -18,7 +18,7 @@ Nel JOIN warm su un milione di righe, SQLite ha registrato una mediana del picco
 
 ![Picco RSS dell'intero processo: singole osservazioni, mediane e intervalli osservati](charts/peak_memory.png)
 
-Ogni punto è una misura reale. Le barre mostrano minimo e massimo osservati su cinque ripetizioni, non intervalli di confidenza. I rapporti confrontano mediane in condizioni equivalenti e non dimostrano accelerazioni universali.
+I rapporti confrontano mediane in condizioni equivalenti e non dimostrano accelerazioni universali.
 
 Tempo mediano con 1.000.000 di righe nella tabella dei fatti, in millisecondi:
 
@@ -32,6 +32,14 @@ Tempo mediano con 1.000.000 di righe nella tabella dei fatti, in millisecondi:
 | JOIN e aggregazione | Warm | 107,68 | 28,05 | 317,70 |
 
 Consulta le [misure grezze](results/main/raw.csv), il [riepilogo completo](results/analysis/summary.csv) o il rapporto in russo in [PDF](reports/synthetic-processing-study-ru.pdf) e [DOCX modificabile](reports/synthetic-processing-study-ru.docx).
+
+## Come leggere i grafici
+
+I simboli piccoli mostrano le singole prove, quelli grandi le mediane; le barre indicano minimo e massimo osservati su cinque ripetizioni, non intervalli di confidenza. Le dimensioni dei dataset sono categorie equidistanti sull'asse x, non distanze numeriche proporzionali. Il tempo usa un asse y logaritmico comune alle operazioni della stessa modalità, con limiti diversi per cold e warm. Tra modalità, confrontare i valori degli assi, non l'altezza dei simboli. La memoria usa lo stesso asse y lineare con origine zero in tutti e sei i pannelli.
+
+**Process-cold** comprende caricamento del file NPZ condiviso, preparazione, esecuzione, ordinamento e materializzazione completa del risultato; import e avvio del processo sono esclusi. Le cache dei file del sistema operativo non sono state svuotate: non è una misura a disco freddo. **Warm** comprende solo esecuzione e risultato completo dopo una prova preliminare non cronometrata. Ogni ripetizione usa un processo nuovo.
+
+**Il picco RSS** è il massimo di memoria dell'intero processo fino al completamento della query, prima della verifica. Include import, array di input, preparazione e prova warm, non solo la memoria incrementale della query o la memoria fisica esclusiva. Le osservazioni riguardano una macchina e uno schema sintetico. L'energia non è stata misurata; non sono supportate conclusioni su energia o CO2. Vedere la [metodologia](docs/METHODOLOGY.md) e i [chiarimenti sulle misure](docs/IMPLEMENTATION_ADDENDUM.md).
 
 ## Avvio rapido: analizzare i dati raccolti
 
@@ -60,12 +68,6 @@ La matrice principale comprende 50.000, 250.000 e 1.000.000 di righe, tre implem
 
 Python usa liste di righe e un dizionario, pandas usa DataFrame interi e SQLite un database in memoria con chiave primaria sui clienti e nessun indice sulla tabella dei fatti. Il confronto riguarda queste implementazioni concrete e le loro diverse rappresentazioni.
 
-**Process-cold** comprende caricamento del file NPZ condiviso, preparazione, esecuzione, ordinamento e materializzazione completa del risultato. Import e avvio del processo sono esclusi. Le cache del sistema operativo non sono state svuotate: non è una misura a disco freddo.
-
-**Warm** comprende esecuzione e risultato completo dopo una prova preliminare non cronometrata. Ogni ripetizione usa comunque un processo nuovo; caricamento e preparazione sono esclusi dal tempo misurato.
-
-**Il picco RSS** è il massimo di memoria dell'intero processo fino al completamento della query, prima della verifica. Include import, array di input, strutture del metodo e prova warm. Non misura la sola memoria incrementale della query né la memoria fisica esclusiva.
-
 Seed dei dati: `20261001`. Seed dell'ordine principale: `73129`. Blocchi e ordine sono stati randomizzati, eseguendo un processo alla volta. Versioni registrate: Python 3.12.14, NumPy 2.3.5, pandas 2.2.3, SQLite 3.53.1 e macOS 26.7.1. I limiti dei thread delle librerie numeriche erano impostati a 1; `PRAGMA threads=1` di SQLite limita i thread ausiliari della query, non i thread totali del processo.
 
 ## Correttezza e limiti
@@ -93,7 +95,3 @@ Per adattare un'operazione, modificare le tre implementazioni in `src/backends.p
 - `charts/`: grafici di tempo e memoria in PNG e PDF.
 - `docs/`: metodologia, decisioni e documentazione.
 - `reports/`: rapporti in russo, incluso il documento esteso in PDF e DOCX.
-
-## Licenza
-
-Non è ancora stata scelta una licenza. La decisione spetta al proprietario del repository.

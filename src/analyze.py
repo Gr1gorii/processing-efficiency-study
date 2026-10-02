@@ -299,7 +299,8 @@ def draw_figure(path: Path, grouped: dict, metric: str, observation_count: int, 
             mode_label = "process-cold" if mode == "cold" else "warm"
             text(pdf, left, bottom + panel_height + 43, f"{OPERATION_LABELS[operation]} | {mode_label}", 13, bold=True)
             text(pdf, left, bottom + panel_height + 23,
-                 "Elapsed time (ms, log scale)" if is_time else "Peak RSS (MiB, zero baseline)", 10, MUTED)
+                 "Elapsed time (ms, log; different cold/warm limits)"
+                 if is_time else "Peak RSS (MiB, zero baseline)", 10, MUTED)
             for value in ticks:
                 ypos = bottom + position(value) * panel_height
                 pdf.setStrokeColor(GRID)
@@ -335,18 +336,9 @@ def draw_figure(path: Path, grouped: dict, metric: str, observation_count: int, 
                            backend, 4.0, color, median=True)
             text(pdf, left + panel_width / 2, bottom - 36, "Dataset size (fact rows)", 10, MUTED, align="center")
 
-    pdf.setStrokeColor(GRID)
-    pdf.line(54, 113, width - 54, 113)
-    footer = [
-        "Bars show the observed minimum and maximum, not confidence intervals. Dataset sizes are equally spaced categories.",
-        ("Time y-axis limits differ between cold and warm rows; they are shared across operations within each mode."
-         if is_time else "Memory uses the same zero-based y-axis across all six panels."),
-        "Cold time includes loading, backend preparation and query output. Warm time includes only the query and its complete output.",
-        "RSS is the peak of the whole worker through query completion: imports, source data, backend setup and warm priming included.",
-        "Process-cold is not disk-cold; OS file cache was not cleared. One machine, one synthetic schema. No energy or CO2 measurement.",
-    ]
-    for index, line in enumerate(footer):
-        text(pdf, 54, 94 - index * 17, line, 10, MUTED)
+    text(pdf, width / 2, 69,
+         "Median with observed min-max | Synthetic data | One machine",
+         11, MUTED, align="center")
     pdf.showPage()
     pdf.save()
 

@@ -24,5 +24,3 @@ The public audit verifies a complete schedule and unique trial order. It does no
 The original Russian PDF and editable DOCX reports are retained as separate documents. Their measured results remain valid. The historical report links to an earlier local ZIP; use GitHub Code > Download ZIP for this public version instead. Any process-ID statement in them describes verification of the original private logs before metadata removal.
 
 The private original protocol remains preserved locally. The public audit verifies the published protocol against `public_methodology_sha256`; it does not claim that the shortened Markdown has the original collection-time hash.
-
-No license has been selected. A license decision remains with the repository owner; public visibility alone is not a broad permission to reuse the work.

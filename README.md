@@ -2,11 +2,11 @@
 
 **English** | [Italiano](README.it.md)
 
-A reproducible comparison of Python loops, pandas and SQLite on identical synthetic data. It answers a practical question: how do processing time and memory change when the same filter, grouping or JOIN is implemented in different ways?
+I compared Python loops, pandas and SQLite on identical synthetic data. My goal was to understand how processing time and memory change when the same filter, grouping or JOIN is implemented in different ways, using a reproducible experiment.
 
 For junior data analysts and developers, this is a worked example of designing a fair comparison, checking equivalent outputs and explaining time/memory tradeoffs. The repository contains the program, generated inputs, real measurements and analysis. The experiment ran on one Apple M3 MacBook Air with 16 GB RAM on 1 October 2026. These are synthetic integer records, not customer data.
 
-## What the measurements show
+## My findings
 
 At one million rows, pandas had the lowest median time for all three operations, both with preparation included and in warm execution. Its warm execution was **1.56 times as fast as Python for filtering, 10.89 times for grouping and 3.84 times for JOIN and aggregation**.
 
@@ -18,7 +18,7 @@ For the million-row warm JOIN, SQLite had a lower median peak worker RSS than pa
 
 ![Measured peak whole-worker RSS: individual observations, medians and observed ranges](charts/peak_memory.png)
 
-Each point is a real observation. Bars show the observed minimum and maximum of five repeats, not confidence intervals. Ratios compare matching medians and do not establish universal speedups.
+Ratios compare matching medians and do not establish universal speedups.
 
 Median elapsed time at 1,000,000 fact rows, in milliseconds:
 
@@ -32,6 +32,14 @@ Median elapsed time at 1,000,000 fact rows, in milliseconds:
 | JOIN and aggregate | Warm | 107.68 | 28.05 | 317.70 |
 
 Explore the [raw measurements](results/main/raw.csv), [complete summary](results/analysis/summary.csv) or Russian report in [PDF](reports/synthetic-processing-study-ru.pdf) and [editable DOCX](reports/synthetic-processing-study-ru.docx).
+
+## How to read the charts
+
+Small marks show individual runs, large marks show medians, and bars show the observed min-max of five repeats, not confidence intervals. Dataset sizes are equally spaced categories on the x-axis, not proportional numeric distances. Time uses a logarithmic y-axis shared across operations within each mode, with different limits for cold and warm. Compare axis values across modes, not marker heights. Memory uses the same zero-based linear y-axis in all six panels.
+
+**Process-cold** includes loading the shared NPZ, backend preparation, execution, ordering and complete output materialization; imports and process launch are excluded. OS file caches were not cleared, so this is not disk-cold performance. **Warm** includes only execution and complete output after one untimed prime. Each repeat uses a fresh worker.
+
+**Peak RSS** is the whole worker's memory high-water mark through query completion, before validation. It includes imports, input arrays, backend preparation and warm priming, not just incremental query memory or exclusively owned physical memory. These observations cover one machine and one synthetic schema. Energy was not measured; no energy or CO2 conclusions are supported. See the [methodology](docs/METHODOLOGY.md) and [measurement clarifications](docs/IMPLEMENTATION_ADDENDUM.md).
 
 ## Quick start: analyze the collected data
 
@@ -60,12 +68,6 @@ The main matrix contains 50,000, 250,000 and 1,000,000 fact rows, three implemen
 
 Python uses row lists and a dictionary, pandas uses integer DataFrames, and SQLite uses an in-memory database with a customer primary key and no fact-table indexes. This compares these concrete implementations, including their different representations.
 
-**Process-cold** times loading the shared NPZ, backend preparation, execution, ordering and complete output materialization. Imports and process launch are excluded. OS caches were not cleared, so this is not disk-cold performance.
-
-**Warm** times execution and complete output after one untimed prime. Each repeat still uses a fresh worker, and loading and preparation are excluded from its timer.
-
-**Peak RSS** is the whole worker's memory high-water mark through query completion, before validation. It includes imports, input arrays, backend structures and warm priming. It is not incremental query memory or exclusively owned physical memory.
-
 Data seed: `20261001`. Main schedule seed: `73129`. Blocks and execution order were randomized, with workers running sequentially. Recorded versions: Python 3.12.14, NumPy 2.3.5, pandas 2.2.3, SQLite 3.53.1 and macOS 26.7.1. Numerical-library thread limits were set to 1; SQLite `PRAGMA threads=1` limits auxiliary query threads, not the process's total threads.
 
 ## Correctness and limits
@@ -93,7 +95,3 @@ To adapt an operation, change its three implementations in `src/backends.py`, th
 - `charts/`: time and memory figures in PNG and PDF.
 - `docs/`: methodology, decisions and narrative material.
 - `reports/`: Russian reports, including the expanded PDF and DOCX.
-
-## License
-
-A license has not yet been selected. Licensing is pending the repository owner's decision.
