@@ -2,6 +2,8 @@
 
 **English** | [Italiano](README.it.md)
 
+Published report: [processing-efficiency-study](https://gr1gorii.github.io/processing-efficiency-study/)
+
 I compared Python loops, pandas and SQLite on identical synthetic data. My goal was to understand how processing time and memory change when the same filter, grouping or JOIN is implemented in different ways, using a reproducible experiment.
 
 For junior data analysts and developers, this is a worked example of designing a fair comparison, checking equivalent outputs and explaining time/memory tradeoffs. The repository contains the program, generated inputs, real measurements and analysis. The experiment ran on one Apple M3 MacBook Air with 16 GB RAM on 1 October 2026. These are synthetic integer records, not customer data.

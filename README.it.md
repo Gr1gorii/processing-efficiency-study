@@ -2,6 +2,8 @@
 
 [English](README.md) | **Italiano**
 
+Rapporto online: [processing-efficiency-study](https://gr1gorii.github.io/processing-efficiency-study/)
+
 Ho confrontato cicli Python, pandas e SQLite sugli stessi dati sintetici. Il mio obiettivo era capire come cambiano tempo e memoria quando lo stesso filtro, raggruppamento o JOIN viene implementato in modi diversi, con un esperimento riproducibile.
 
 Per analisti junior e sviluppatori, questo studio mostra come impostare un confronto verificabile, controllare risultati equivalenti e interpretare il rapporto tra tempo e memoria. Il repository contiene programma, input generati, misure reali e analisi. L'esperimento è stato eseguito su un MacBook Air Apple M3 con 16 GB di RAM il 1 ottobre 2026. I record contengono interi sintetici, non dati di clienti reali.
